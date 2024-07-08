@@ -84,13 +84,6 @@ cars.reverse()
 
 方法reverse()永久性地修改列表元素的排列顺序，但可随时恢复到原来的排列顺序，为此只需对列表再次调用reverse()即可。
 
-#### 使用range()创建数字列表 
-
-```python
-# 函数range()从2开始数，然后不断地加2，直到达到或超过终值（11）
-even_numbers = list(range(2,11,2))
-```
-
 #### 列表解析
 
 列表解析将for循环和创建新元素的代码合并成一行，并自动附加新元素
@@ -222,6 +215,40 @@ print("结束了，回去吧")
 在循环过程中，也可以通过`continue`语句，跳过当前的这次循环，直接开始下一次循环。
 
 *要特别注意*，**不要滥用`break`和`continue`语句**。`break`和`continue`会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到`break`和`continue`语句
+
+#### 4.for循环
+
+##### **使用zip()**
+
+`zip()`函数可以同时遍历多个序列。
+
+```python
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+for item1, item2 in zip(list1, list2):
+    print(item1, item2)
+```
+
+##### `range()`函数
+
+```python
+for i in range(3, 8):
+    print(i)  # 输出: 3, 4, 5, 6, 7
+
+for i in range(0, 10, 2):
+    print(i)  # 输出: 0, 2, 4, 6, 8
+    
+for i in range(5, -1, -1):
+    print(i)  # 输出: 5, 4, 3, 2, 1, 0
+
+for i in range(5, 3, -1):
+    print(i)  # 不会输出任何内容，因为序列是空的    
+    
+```
+
+- `range()`生成的序列是惰性的，即它不会一次性生成所有整数，而是按需生成，这使得它在处理大范围数字时非常高效。
+- `range()`函数不能生成小数序列，它只能生成整数序列。
+- 在Python 3.x中，`range()`返回的是一个`range`对象，而在Python 2.x中，它返回的是一个列表。在Python 3.x中，如果你需要列表，可以使用`list(range())`进行转换。
 
 ### 使用字典和集合
 
